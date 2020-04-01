@@ -1,31 +1,30 @@
 import React from "react";
-import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Text } from "react-native";
+import styled from "styled-components/native";
 import Icon from "react-native-vector-icons/FontAwesome";
 import { TouchableWithoutFeedback } from "react-native";
+import CenteredRow from "../common/centered-row";
 
-const styles = StyleSheet.create({
-  root: {
-    display: "flex",
-    flexDirection: "row",
-    alignItems: "center",
-    padding: 10
-  },
+const Root = styled.View`
+  padding: 10px;
+`;
 
-  iconContainer: {
-    marginRight: 10
-  }
-});
+const IconContainer = styled.View`
+  margin-right: 10px;
+`;
 
 const Header = () => {
   return (
-    <View style={styles.root}>
-      <TouchableWithoutFeedback>
-        <View style={styles.iconContainer}>
-          <Icon name={"cog"} size={30} />
-        </View>
-      </TouchableWithoutFeedback>
-      <Text>69 Dank st Dankville DK 69690 </Text>
-    </View>
+    <Root>
+      <CenteredRow>
+        <TouchableWithoutFeedback>
+          <IconContainer>
+            <Icon name={"cog"} size={30} />
+          </IconContainer>
+        </TouchableWithoutFeedback>
+        <Text>69 Dank st Dankville DK 69690 </Text>
+      </CenteredRow>
+    </Root>
   );
 };
 
