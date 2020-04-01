@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components/native";
 import WeatherIcon from "../common/weather-icon";
+import CenteredRow from "../common/centered-row";
 
 const Root = styled.View`
   padding: 10px 10px 100px;
@@ -11,12 +12,6 @@ const Entry = styled.View`
   flex-direction: row;
   align-items: center;
   margin-bottom: 20px;
-`;
-
-const CenteredRow = styled.View`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
 `;
 
 const Day = styled.Text`

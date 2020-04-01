@@ -1,54 +1,48 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { View } from "react-native";
+import styled from "styled-components/native";
 import WeatherIcon from "../common/weather-icon";
+import CenteredRow from "../common/centered-row";
 
-const styles = StyleSheet.create({
-  root: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    padding: 30
-  },
+const Root = styled.View`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+`;
 
-  iconContainer: {
-    marginBottom: 20
-  },
+const ImageContainer = styled.View`
+  margin-bottom: 20px;
+`;
 
-  report: {
-    display: "flex",
-    flexDirection: "row",
-    alignItems: "center"
-  },
+const Temp = styled.Text`
+  margin-right: 10px;
+  font-size: 40px;
+`;
 
-  temp: {
-    fontSize: 40,
-    marginRight: 10
-  },
+const Statement = styled.Text`
+  font-size: 16px;
+  font-weight: bold;
+`;
 
-  statement: {
-    fontSize: 16,
-    fontWeight: "bold"
-  },
-
-  suggestion: {
-    letterSpacing: 0.5
-  }
-});
+const Suggestion = styled.Text`
+  letter-spacing: 0.5;
+`;
 
 const CurrentWeather = () => {
   return (
-    <View style={styles.root}>
-      <View style={styles.iconContainer}>
+    <Root>
+      <ImageContainer>
         <WeatherIcon type="sunny" size={128} />
-      </View>
-      <View style={styles.report}>
-        <Text style={styles.temp}>22°</Text>
+      </ImageContainer>
+      <CenteredRow>
+        <Temp>22°</Temp>
         <View>
-          <Text style={styles.statement}>Sun's out guns out</Text>
-          <Text style={styles.suggestion}>Tank top, shorts</Text>
+          <Statement>Sun's out guns out</Statement>
+          <Suggestion>Tank top, shorts</Suggestion>
         </View>
-      </View>
-    </View>
+      </CenteredRow>
+    </Root>
   );
 };
 
