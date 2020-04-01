@@ -1,11 +1,27 @@
 import React from "react";
-import { View, Text } from "react-native";
+import styled from "styled-components/native";
+import Setting from "../common/setting";
 
-export default function Settings() {
+const Root = styled.View`
+  padding-top: 20px;
+`;
+
+const OptionSection = styled.View``;
+
+const Header = styled.Text`
+  text-transform: uppercase;
+  margin-bottom: 5px;
+  padding-left: 20px;
+  font-size: 12px;
+`;
+
+export default Settings = () => {
   return (
-    <View>
-      <Text>Units</Text>
-      <Text>Location</Text>
-    </View>
+    <Root>
+      <OptionSection>
+        <Header>Units</Header>
+        <Setting text="Celsius" navigateTo="SettingUnits" />
+      </OptionSection>
+    </Root>
   );
-}
+};
