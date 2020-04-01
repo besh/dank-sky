@@ -2,7 +2,8 @@ import React from "react";
 import { Text } from "react-native";
 import styled from "styled-components/native";
 import Icon from "react-native-vector-icons/FontAwesome";
-import { TouchableWithoutFeedback } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import { TouchableOpacity } from "react-native";
 import CenteredRow from "../common/centered-row";
 
 const Root = styled.View`
@@ -14,14 +15,16 @@ const IconContainer = styled.View`
 `;
 
 const Header = ({ location }) => {
+  const navigation = useNavigation();
+
   return (
     <Root>
       <CenteredRow>
-        <TouchableWithoutFeedback>
+        <TouchableOpacity onPress={() => navigation.navigate("Settings")}>
           <IconContainer>
             <Icon name={"cog"} size={30} />
           </IconContainer>
-        </TouchableWithoutFeedback>
+        </TouchableOpacity>
         <Text>{location}</Text>
       </CenteredRow>
     </Root>
