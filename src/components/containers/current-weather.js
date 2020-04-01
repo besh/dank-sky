@@ -1,6 +1,6 @@
 import React from "react";
-import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import Icon from "react-native-vector-icons/FontAwesome";
+import { StyleSheet, Text, View } from "react-native";
+import WeatherIcon from "../common/weather-icon";
 
 const styles = StyleSheet.create({
   root: {
@@ -39,7 +39,7 @@ const CurrentWeather = () => {
   return (
     <View style={styles.root}>
       <View style={styles.iconContainer}>
-        <Icon name={"sun-o"} size={128} />
+        <WeatherIcon type="sunny" size={128} />
       </View>
       <View style={styles.report}>
         <Text style={styles.temp}>22°</Text>
