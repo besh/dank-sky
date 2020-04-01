@@ -13,7 +13,7 @@ const IconContainer = styled.View`
   margin-right: 10px;
 `;
 
-const Header = () => {
+const Header = ({ location }) => {
   return (
     <Root>
       <CenteredRow>
@@ -22,7 +22,7 @@ const Header = () => {
             <Icon name={"cog"} size={30} />
           </IconContainer>
         </TouchableWithoutFeedback>
-        <Text>69 Dank st Dankville DK 69690 </Text>
+        <Text>{location}</Text>
       </CenteredRow>
     </Root>
   );

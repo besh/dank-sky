@@ -26,7 +26,7 @@ const Statement = styled.Text`
 `;
 
 const Suggestion = styled.Text`
-  letter-spacing: 0.5;
+  font-size: 15px;
 `;
 
 const CurrentWeather = () => {
