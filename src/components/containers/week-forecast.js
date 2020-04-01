@@ -1,75 +1,65 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import styled from "styled-components/native";
 import WeatherIcon from "../common/weather-icon";
 
-const styles = StyleSheet.create({
-  root: {
-    padding: 10,
-    paddingBottom: 100
-  },
+const Root = styled.View`
+  padding: 10px 10px 100px;
+`;
 
-  entry: {
-    display: "flex",
-    flexDirection: "row",
-    alignItems: "center",
-    marginBottom: 20
-  },
+const Entry = styled.View`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 20px;
+`;
 
-  left: {
-    display: "flex",
-    flexDirection: "row",
-    alignItems: "center"
-  },
+const CenteredRow = styled.View`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`;
 
-  day: {
-    textTransform: "uppercase",
-    marginRight: 10,
-    fontWeight: "bold",
-    fontSize: 16,
-    width: 50
-  },
+const Day = styled.Text`
+  text-transform: uppercase;
+  margin-right: 10px;
+  font-weight: bold;
+  font-size: 16px;
+  width: 50px;
+`;
 
-  report: {
-    display: "flex",
-    flexDirection: "row",
-    alignItems: "center"
-  },
+const IconContainer = styled.View`
+  width: 40px;
+`;
 
-  iconContainer: {
-    width: 40
-  },
+const Temp = styled.Text`
+  font-size: 16px;
+  width: 50px;
+  margin-right: 10px;
+  margin-left: 10px;
+`;
 
-  temp: {
-    fontSize: 16,
-    width: 50,
-    marginRight: 10,
-    marginLeft: 10
-  },
-
-  suggestion: {
-    textAlign: "left"
-  }
-});
+const Suggestion = styled.Text`
+  text-align: left;
+`;
 
 const WeekForecast = ({ data }) => {
   return (
-    <View style={styles.root}>
+    <Root>
       {data.map(({ day, temp, suggestion, sky }) => (
-        <View style={styles.entry}>
-          <View style={styles.left}>
-            <Text style={styles.day}>{day}</Text>
-            <View style={styles.report}>
-              <View style={styles.iconContainer}>
+        <Entry key={day}>
+          <CenteredRow>
+            <Day>{day}</Day>
+            <CenteredRow>
+              <IconContainer>
                 <WeatherIcon type={sky} />
-              </View>
-              <Text style={styles.temp}>{temp}°</Text>
-            </View>
-          </View>
-
-          <Text style={styles.suggestion}>{suggestion}</Text>
-        </View>
+              </IconContainer>
+              <Temp>{temp}°</Temp>
+            </CenteredRow>
+          </CenteredRow>
+          <Suggestion>{suggestion}</Suggestion>
+        </Entry>
       ))}
-    </View>
+    </Root>
   );
 };
 
