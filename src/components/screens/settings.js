@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components/native";
 import Setting from "../common/setting";
+import { useStore } from "../../state";
 import { useNavigation } from "@react-navigation/native";
 
 const Root = styled.View`
@@ -18,13 +19,14 @@ const Header = styled.Text`
 
 export default Settings = () => {
   const navigation = useNavigation();
+  const [store] = useStore();
 
   return (
     <Root>
       <OptionSection>
         <Header>Units</Header>
         <Setting
-          text="Celsius"
+          text={store.unit}
           onPress={() => navigation.navigate("SettingUnits")}
         />
       </OptionSection>

@@ -3,6 +3,7 @@ import { Text } from "react-native";
 import styled from "styled-components/native";
 import Icon from "react-native-vector-icons/FontAwesome";
 import { useNavigation } from "@react-navigation/native";
+import { useStore } from "../../state";
 import { TouchableOpacity } from "react-native";
 import CenteredRow from "../common/centered-row";
 
@@ -14,8 +15,9 @@ const IconContainer = styled.View`
   margin-right: 10px;
 `;
 
-const Header = ({ location }) => {
+const Header = () => {
   const navigation = useNavigation();
+  const [{ address }] = useStore();
 
   return (
     <Root>
@@ -25,7 +27,7 @@ const Header = ({ location }) => {
             <Icon name={"cog"} size={30} />
           </IconContainer>
         </TouchableOpacity>
-        <Text>{location}</Text>
+        <Text>{address}</Text>
       </CenteredRow>
     </Root>
   );

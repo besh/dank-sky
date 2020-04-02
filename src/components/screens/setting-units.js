@@ -1,34 +1,30 @@
 import React from "react";
-// import AsyncStorage from "@react-native-community/async-storage";
 import { View } from "react-native";
-import Setting from "../common/setting";
+import { useStore } from "../../state";
+import { SETTING_KEYS, SETTING_VALUES } from "../../constants/settings";
+import SelectableSetting from "../common/selectable-setting";
 
-// const setUnit = async value => {
-//   try {
-//     await AsyncStorage.setItem("@Unit", value);
-//   } catch (e) {
-//     // dispatch in app notification on failure?
-//   }
-
-//   console.log("Done.");
-// };
-
-// const getUnit = async () => {
-//   try {
-//     return await AsyncStorage.getItem("@Unit");
-//   } catch (e) {
-//     // dispatch in app notification on failure?
-//   }
-
-//   console.log("Done.");
-// };
+const options = [SETTING_VALUES.fahrenheit, SETTING_VALUES.celsius];
 
 export default function SettingUnits() {
+  const [{ unit }, dispatch] = useStore();
+
   return (
     <View>
-      <Setting text="Celsius" onPress={() => {}} />
-
-      <Setting text="Fahrenheit" onPress={() => {}} />
+      {options.map(option => (
+        <SelectableSetting
+          key={option}
+          selected={unit === option}
+          text={option}
+          onPress={() => {
+            dispatch({
+              type: "updateSetting",
+              key: SETTING_KEYS.unit,
+              value: option
+            });
+          }}
+        />
+      ))}
     </View>
   );
 }
