@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components/native";
 import Setting from "../common/setting";
+import { useNavigation } from "@react-navigation/native";
 
 const Root = styled.View`
   padding-top: 20px;
@@ -16,11 +17,16 @@ const Header = styled.Text`
 `;
 
 export default Settings = () => {
+  const navigation = useNavigation();
+
   return (
     <Root>
       <OptionSection>
         <Header>Units</Header>
-        <Setting text="Celsius" navigateTo="SettingUnits" />
+        <Setting
+          text="Celsius"
+          onPress={() => navigation.navigate("SettingUnits")}
+        />
       </OptionSection>
     </Root>
   );

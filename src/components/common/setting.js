@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components/native";
 import Icon from "react-native-vector-icons/FontAwesome";
 import { TouchableOpacity } from "react-native";
-import { useNavigation } from "@react-navigation/native";
 
 const Option = styled.View`
   background: #fefefe;
@@ -18,11 +17,13 @@ const OptionText = styled.Text`
   font-size: 14px;
 `;
 
-export default ({ text, navigateTo }) => {
-  const navigation = useNavigation();
-
+/* TODO:
+ * Sibling selectors are not supported. When more than one option is displayed,
+ * it produces a double border between each option.
+ */
+export default ({ text, onPress }) => {
   return (
-    <TouchableOpacity onPress={() => navigation.navigate(navigateTo)}>
+    <TouchableOpacity onPress={onPress}>
       <Option>
         <OptionText>{text}</OptionText>
         <Icon name="chevron-right" />
