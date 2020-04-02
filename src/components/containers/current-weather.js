@@ -1,8 +1,8 @@
 import React from "react";
 import { View } from "react-native";
 import styled from "styled-components/native";
-import WeatherIcon from "../common/weather-icon";
-import CenteredRow from "../common/centered-row";
+import WeatherIcon from "components/common/weather-icon";
+import CenteredRow from "components/common/centered-row";
 
 const Root = styled.View`
   display: flex;

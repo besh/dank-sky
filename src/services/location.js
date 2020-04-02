@@ -25,6 +25,6 @@ export const getLocation = async () => {
       coords
     };
   } else {
-    return "declined";
+    return {};
   }
 };

@@ -3,9 +3,9 @@ import { Text } from "react-native";
 import styled from "styled-components/native";
 import Icon from "react-native-vector-icons/FontAwesome";
 import { useNavigation } from "@react-navigation/native";
-import { useStore } from "../../state";
+import { useStore } from "state";
 import { TouchableOpacity } from "react-native";
-import CenteredRow from "../common/centered-row";
+import CenteredRow from "components/common/centered-row";
 
 const Root = styled.View`
   padding: 10px;

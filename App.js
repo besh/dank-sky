@@ -1,9 +1,9 @@
 import React from "react";
-import MainStackNavigator from "./src/components/containers/main-stack-navigator";
-import InitializeSettings from "./src/components/containers/initialize-settings";
-import { StateProvider } from "./src/state";
-import { setItem } from "./src/services/storage";
-import { SETTING_KEYS, SETTING_VALUES } from "./src/constants/settings";
+import MainStackNavigator from "components/containers/main-stack-navigator";
+import InitializeSettings from "components/containers/initialize-settings";
+import { StateProvider } from "state";
+import { setItem } from "services/storage";
+import { SETTING_KEYS, SETTING_VALUES } from "constants/settings";
 
 /* TODO:
  * Bounce initialState and settings reducer out to new files

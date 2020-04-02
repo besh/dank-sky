@@ -1,8 +1,8 @@
 import React from "react";
-import styled from "styled-components/native";
-import Setting from "../common/setting";
-import { useStore } from "../../state";
 import { useNavigation } from "@react-navigation/native";
+import { useStore } from "state";
+import styled from "styled-components/native";
+import Setting from "components/common/setting";
 
 const Root = styled.View`
   padding-top: 20px;

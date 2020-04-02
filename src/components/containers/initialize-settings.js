@@ -1,8 +1,8 @@
 import { useEffect } from "react";
-import { useStore } from "../../state";
-import { getItem } from "../../services/storage";
-import { getLocation } from "../../services/location";
-import { SETTING_KEYS, SETTING_VALUES } from "../../constants/settings";
+import { useStore } from "state";
+import { getItem } from "services/storage";
+import { getLocation } from "services/location";
+import { SETTING_KEYS, SETTING_VALUES } from "constants/settings";
 
 export default function InitializeSettings({ children }) {
   const [_, dispatch] = useStore();

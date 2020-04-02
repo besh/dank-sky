@@ -1,8 +1,8 @@
 import React from "react";
 import { View } from "react-native";
-import { useStore } from "../../state";
-import { SETTING_KEYS, SETTING_VALUES } from "../../constants/settings";
-import SelectableSetting from "../common/selectable-setting";
+import { useStore } from "state";
+import { SETTING_KEYS, SETTING_VALUES } from "constants/settings";
+import SelectableSetting from "components/common/selectable-setting";
 
 const options = [SETTING_VALUES.fahrenheit, SETTING_VALUES.celsius];
 
