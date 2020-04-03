@@ -1,4 +1,5 @@
 import React from "react";
+import { StatusBar } from "react-native";
 import MainStackNavigator from "components/containers/main-stack-navigator";
 import InitializeSettings from "components/containers/initialize-settings";
 import { StateProvider } from "state";
@@ -34,6 +35,7 @@ const reducer = (state, { type, key, value }) => {
 export default function App() {
   return (
     <StateProvider initialState={initialState} reducer={reducer}>
+      <StatusBar barStyle="dark-content" />
       <InitializeSettings>
         <MainStackNavigator />
       </InitializeSettings>

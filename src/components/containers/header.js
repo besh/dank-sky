@@ -8,7 +8,7 @@ import { TouchableOpacity } from "react-native";
 import CenteredRow from "components/common/centered-row";
 
 const Root = styled.View`
-  padding: 10px;
+  padding: 25px 10px 10px;
 `;
 
 const IconContainer = styled.View`

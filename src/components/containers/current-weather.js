@@ -1,7 +1,7 @@
 import React from "react";
 import { View } from "react-native";
 import { TEMPERATURE_RANGES } from "constants/what-to-wear-ranges";
-import { SETTING_KEYS, SETTING_VALUES } from "constants/settings";
+import { SETTING_VALUES } from "constants/settings";
 import { useStore } from "state";
 import styled from "styled-components/native";
 import WeatherIcon from "components/common/weather-icon";
