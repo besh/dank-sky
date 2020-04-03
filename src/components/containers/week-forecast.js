@@ -1,4 +1,5 @@
 import React from "react";
+import { View } from "react-native";
 import { fromUnixTime, format } from "date-fns";
 import styled from "styled-components/native";
 import WeatherIcon from "components/common/weather-icon";
@@ -16,29 +17,27 @@ const Entry = styled.View`
   margin-bottom: 20px;
 `;
 
-const Day = styled.Text`
-  text-transform: uppercase;
+const Info = styled.View`
   margin-right: 10px;
-  font-weight: bold;
-  font-size: 16px;
-  width: 40px;
 `;
 
-const IconContainer = styled.View`
-  width: 35px;
+const Day = styled.Text`
+  text-transform: uppercase;
+  font-size: 14px;
+  font-family: Plex-mono;
 `;
 
 const Temp = styled.Text`
-  font-size: 16px;
-  margin-right: 10px;
-  margin-left: 10px;
-  width: 40px;
+  font-size: 22px;
+  font-family: Plex-mono;
 `;
 
 const Summary = styled.Text`
   text-align: left;
-  width: 140px;
   flex-wrap: wrap;
+  font-family: Plex-sans;
+  margin-left: 20px;
+  width: 160px;
 `;
 
 const WeekForecast = ({ data }) => {
@@ -49,13 +48,12 @@ const WeekForecast = ({ data }) => {
         return (
           <Entry key={time}>
             <CenteredRow>
-              <Day>{day}</Day>
-              <CenteredRow>
-                <IconContainer>
-                  <WeatherIcon type={icon} size={28} />
-                </IconContainer>
+              <Info>
+                <Day>{day}</Day>
                 <Temp>{Math.floor(apparentTemperatureHigh)}°</Temp>
-              </CenteredRow>
+              </Info>
+
+              <WeatherIcon type={icon} size={40} />
             </CenteredRow>
             <Summary>{summary}</Summary>
           </Entry>

@@ -1,5 +1,4 @@
 import React from "react";
-import { Text } from "react-native";
 import styled from "styled-components/native";
 import Icon from "react-native-vector-icons/FontAwesome";
 import { useNavigation } from "@react-navigation/native";
@@ -15,6 +14,10 @@ const IconContainer = styled.View`
   margin-right: 10px;
 `;
 
+const Address = styled.Text`
+  font-family: Plex-sans;
+`;
+
 const Header = () => {
   const navigation = useNavigation();
   const [{ address }] = useStore();
@@ -27,7 +30,7 @@ const Header = () => {
             <Icon name={"cog"} size={30} />
           </IconContainer>
         </TouchableOpacity>
-        <Text>{address}</Text>
+        <Address>{address}</Address>
       </CenteredRow>
     </Root>
   );

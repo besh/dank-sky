@@ -25,7 +25,7 @@ const types = {
 
 const WeatherIcon = ({ type, size }) => {
   const Icon = types[type];
-  return <Icon width={size} height={size} />;
+  return <Icon fill="orange" width={size} height={size} />;
 };
 
 WeatherIcon.defaultProps = {

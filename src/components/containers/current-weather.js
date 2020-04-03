@@ -11,7 +11,8 @@ const Root = styled.View`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
+  padding: 20px 20px 40px;
+  background: black;
 `;
 
 const ImageContainer = styled.View`
@@ -20,16 +21,22 @@ const ImageContainer = styled.View`
 
 const Temp = styled.Text`
   margin-right: 10px;
-  font-size: 40px;
+  font-size: 46px;
+  font-family: Plex-mono;
+  color: white;
 `;
 
 const Statement = styled.Text`
   font-size: 16px;
   font-weight: bold;
+  font-family: Plex-sans;
+  color: white;
 `;
 
 const Suggestion = styled.Text`
   font-size: 15px;
+  font-family: Plex-sans;
+  color: white;
 `;
 
 const CurrentWeather = ({ data }) => {
