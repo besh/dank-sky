@@ -19,14 +19,14 @@ const Header = styled.Text`
 
 export default Settings = () => {
   const navigation = useNavigation();
-  const [store] = useStore();
+  const [{ unit }] = useStore();
 
   return (
     <Root>
       <OptionSection>
         <Header>Units</Header>
         <Setting
-          text={store.unit}
+          text={unit}
           onPress={() => navigation.navigate("SettingUnits")}
         />
       </OptionSection>

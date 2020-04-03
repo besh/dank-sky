@@ -25,8 +25,6 @@ const Forecast = () => {
 
   const { currently, minutely, daily } = res.response;
 
-  console.log(daily.data);
-
   const currentWeatherData = {
     icon: minutely.icon,
     summary: minutely.summary,
