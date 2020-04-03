@@ -2,10 +2,16 @@ import React from "react";
 import Icon from "react-native-vector-icons/FontAwesome";
 
 const types = {
-  sunny: "sun-o",
+  "clear-day": "sun-o",
+  "clear-night": "moon-o",
+  "partly-cloudy-day": "cloud",
+  "partly-cloudy-night": "cloud",
   cloudy: "cloud",
-  snowy: "snowflake-o",
-  rainy: "shower"
+  rain: "shower",
+  sleet: "snowflake-o",
+  snow: "snowflake-o",
+  wind: "cloud",
+  fog: "cloud"
 };
 
 const WeatherIcon = ({ type, size }) => {
