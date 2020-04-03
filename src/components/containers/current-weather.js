@@ -1,6 +1,6 @@
 import React from "react";
 import { View } from "react-native";
-import { TEMPERATURE_RANGES } from "constants/what-to-wear-ranges";
+import { faToCe, getClothingSuggestion } from "../../utils/temperature";
 import { SETTING_VALUES } from "constants/settings";
 import { useStore } from "state";
 import styled from "styled-components/native";
@@ -32,21 +32,6 @@ const Suggestion = styled.Text`
   font-size: 15px;
 `;
 
-// TODO: move to utils
-const toCelsius = fahrenheit => {
-  return ((fahrenheit - 32) * 5) / 9;
-};
-
-// TODO: move to utils
-const getSuggestion = temperature => {
-  const [suggestion] = TEMPERATURE_RANGES.find(([_, min, max]) => {
-    console.log(temperature, min, max);
-    return temperature >= min && temperature < max;
-  });
-
-  return suggestion;
-};
-
 const CurrentWeather = ({ data }) => {
   const [{ unit }] = useStore();
   const { icon, temperature, summary } = data;
@@ -54,10 +39,10 @@ const CurrentWeather = ({ data }) => {
   let _temp = temperature;
 
   if (unit === SETTING_VALUES.fahrenheit) {
-    _temp = toCelsius(_temp);
+    _temp = faToCe(_temp);
   }
 
-  const suggestion = getSuggestion(_temp);
+  const suggestion = getClothingSuggestion(_temp);
 
   return (
     <Root>

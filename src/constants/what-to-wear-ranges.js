@@ -1,14 +1,42 @@
-export const TEMPERATURE_RANGES = [
-  ["Lava", -9999, -31],
-  ["Yeti fur", -30, -19],
-  ["Winter jacket", -18, 5],
-  ["Sweatshirt or light jacket", 6, 12],
-  ["Long sleeves", 13, 16],
-  ["T-shirt, jeans", 17, 20],
-  ["T-shirt, shorts", 21, 25],
-  ["Tank, shorts", 26, 33],
-  ["Bathing suit", 34, 38],
-  ["Naked", 39, 42],
-  ["Stay inside", 43, 50],
-  ["The world is on fire", 51, 9999]
+export const TEMPERATURE_BREAKPOINTS = [
+  {
+    suggestion: "The world is on fire. Stay inside.",
+    temperature: 50
+  },
+  {
+    suggestion: "Naked",
+    temperature: 40
+  },
+  {
+    suggestion: "Bathing suit",
+    temperature: 34
+  },
+  {
+    suggestion: "Tank, shorts",
+    temperature: 26
+  },
+  {
+    suggestion: "T-shirt, shorts",
+    temperature: 21
+  },
+  {
+    suggestion: "T-shirt, pants",
+    temperature: 17
+  },
+  {
+    suggestion: "Long sleeves",
+    temperature: 13
+  },
+  {
+    suggestion: "Sweatshirt or light jacket",
+    temperature: 6
+  },
+  {
+    suggestion: "Winter jacket",
+    temperature: -18
+  },
+  {
+    suggestion: "Yeti fur",
+    temperature: -9999
+  }
 ];
