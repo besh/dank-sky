@@ -39,9 +39,10 @@ const toCelsius = fahrenheit => {
 
 // TODO: move to utils
 const getSuggestion = temperature => {
-  const [suggestion] = TEMPERATURE_RANGES.find(
-    ([_, min, max]) => temperature >= min && temperature < max
-  );
+  const [suggestion] = TEMPERATURE_RANGES.find(([_, min, max]) => {
+    console.log(temperature, min, max);
+    return temperature >= min && temperature < max;
+  });
 
   return suggestion;
 };
