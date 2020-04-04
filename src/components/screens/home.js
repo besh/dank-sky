@@ -3,7 +3,7 @@ import { View, ScrollView } from "react-native";
 import Header from "components/containers/header";
 import Forecast from "components/containers/forecast";
 
-export default function Home() {
+const Home = () => {
   return (
     <View>
       <Header />
@@ -12,4 +12,6 @@ export default function Home() {
       </ScrollView>
     </View>
   );
-}
+};
+
+export default Home;

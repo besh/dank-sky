@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components/native";
 import Icon from "react-native-vector-icons/FontAwesome";
 
-const Option = styled.View`
+const Root = styled.View`
   background: #fefefe;
   padding: 16px 20px;
   border: 1px solid #eee;
@@ -20,11 +20,13 @@ const OptionText = styled.Text`
  * Sibling selectors are not supported. When more than one option is displayed,
  * it produces a double border between each option.
  */
-export default ({ text, icon }) => {
+const Option = ({ text, icon }) => {
   return (
-    <Option>
+    <Root>
       <OptionText>{text}</OptionText>
       {icon && <Icon name={icon} />}
-    </Option>
+    </Root>
   );
 };
+
+export default Option;

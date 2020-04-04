@@ -17,7 +17,7 @@ const Header = styled.Text`
   font-size: 12px;
 `;
 
-export default Settings = () => {
+const Settings = () => {
   const navigation = useNavigation();
   const [{ unit }] = useStore();
 
@@ -33,3 +33,5 @@ export default Settings = () => {
     </Root>
   );
 };
+
+export default Settings;

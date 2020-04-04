@@ -6,12 +6,12 @@ import SelectableSetting from "components/common/selectable-setting";
 
 const options = [SETTING_VALUES.fahrenheit, SETTING_VALUES.celsius];
 
-export default function SettingUnits() {
+const SettingUnits = () => {
   const [{ unit }, dispatch] = useStore();
 
   return (
     <View>
-      {options.map(option => (
+      {options.map((option) => (
         <SelectableSetting
           key={option}
           selected={unit === option}
@@ -20,11 +20,13 @@ export default function SettingUnits() {
             dispatch({
               type: "updateSetting",
               key: SETTING_KEYS.unit,
-              value: option
+              value: option,
             });
           }}
         />
       ))}
     </View>
   );
-}
+};
+
+export default SettingUnits;
