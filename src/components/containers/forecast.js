@@ -8,7 +8,7 @@ import WeekForecast from "components/containers/week-forecast";
 
 const units = {
   [SETTING_VALUES.fahrenheit]: "us",
-  [SETTING_VALUES.celsius]: "si"
+  [SETTING_VALUES.celsius]: "si",
 };
 
 const Forecast = () => {
@@ -23,12 +23,15 @@ const Forecast = () => {
     return null;
   }
 
+  console.log(res.response);
+
   const { currently, minutely, daily } = res.response;
 
   const currentWeatherData = {
     icon: minutely.icon,
     summary: minutely.summary,
-    temperature: currently.temperature
+    temperature: currently.temperature,
+    apparentTemperature: currently.apparentTemperature,
   };
 
   return (

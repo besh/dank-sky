@@ -1,6 +1,10 @@
 import React from "react";
-import { View } from "react-native";
-import { faToCe, getClothingSuggestion } from "../../utils/temperature";
+import { View, Text } from "react-native";
+import {
+  faToCe,
+  getClothingSuggestion,
+  parseTemperature,
+} from "../../utils/temperature";
 import { SETTING_VALUES } from "constants/settings";
 import { useStore } from "state";
 import styled from "styled-components/native";
@@ -19,11 +23,27 @@ const ImageContainer = styled.View`
   margin-bottom: 20px;
 `;
 
-const Temp = styled.Text`
+const Row = styled.View`
+  display: flex;
+  flex-direction: row;
+`;
+
+const TempContainer = styled.View`
   margin-right: 10px;
-  font-size: 46px;
+`;
+
+const Temp = styled.Text`
+  font-size: 52px;
   font-family: Plex-mono;
   color: white;
+  line-height: 52px;
+`;
+
+const Feels = styled.Text`
+  font-size: 14px;
+  font-family: Plex-mono;
+  color: white;
+  margin-top: -5px;
 `;
 
 const Statement = styled.Text`
@@ -31,6 +51,7 @@ const Statement = styled.Text`
   font-weight: bold;
   font-family: Plex-sans;
   color: white;
+  margin-bottom: 2px;
 `;
 
 const Suggestion = styled.Text`
@@ -41,7 +62,7 @@ const Suggestion = styled.Text`
 
 const CurrentWeather = ({ data }) => {
   const [{ unit }] = useStore();
-  const { icon, temperature, summary } = data;
+  const { icon, temperature, summary, apparentTemperature } = data;
 
   let _temp = temperature;
 
@@ -50,19 +71,29 @@ const CurrentWeather = ({ data }) => {
   }
 
   const suggestion = getClothingSuggestion(_temp);
+  const parsedTemperature = parseTemperature(temperature);
+  const parsedFeelsTemperature = parseTemperature(apparentTemperature);
+  const shouldDisplayFeelsMessage =
+    parsedTemperature !== parsedFeelsTemperature;
 
   return (
     <Root>
       <ImageContainer>
         <WeatherIcon type={icon} size={100} />
       </ImageContainer>
-      <CenteredRow>
-        <Temp>{Math.floor(temperature)}°</Temp>
+      <Row>
+        <TempContainer>
+          <Temp>{parsedTemperature}</Temp>
+          {shouldDisplayFeelsMessage && (
+            <Feels>Feels {parsedFeelsTemperature}</Feels>
+          )}
+        </TempContainer>
+
         <View>
           <Statement>{summary}</Statement>
           <Suggestion>{suggestion}</Suggestion>
         </View>
-      </CenteredRow>
+      </Row>
     </Root>
   );
 };
