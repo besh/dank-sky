@@ -23,9 +23,7 @@ const Forecast = () => {
     return null;
   }
 
-  console.log(res.response);
-
-  const { currently, minutely, daily } = res.response;
+  const { currently, minutely, daily, hourly } = res.response;
 
   const currentWeatherData = {
     icon: minutely.icon,
@@ -33,6 +31,8 @@ const Forecast = () => {
     temperature: currently.temperature,
     apparentTemperature: currently.apparentTemperature,
   };
+
+  console.log(hourly);
 
   return (
     <>
